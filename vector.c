@@ -53,15 +53,11 @@ void vec_sort(Vector * vec) {
         T curr = vec->inner[i];
         long int compare_index = i - 1;
         while (compare_index >= 0 && curr < vec->inner[compare_index]) {
-            printf("checkpoint 1\n");
             // swapping curr and value at compare_index
             vec->inner[compare_index + 1] = vec->inner[compare_index];
-            printf("checkpoint 2\n");
             compare_index--;
         }
-        printf("Checkpoint 4\n");
         vec->inner[compare_index + 1] = curr;
-        printf("Checkpoint 5\n");
     }
 }
 
@@ -77,5 +73,11 @@ void vec_pretty_print(Vector * vec) {
 void vec_debug(Vector * vec) {
     printf("Vec { len: %u, capacity: %u }\n", vec->len, vec->capacity);
     vec_pretty_print(vec);
+}
+
+void vec_map(Vector * vec, T func(T)) {
+    for (unsigned i = 0; i < vec->len; i++) {
+        vec->inner[i] = func(vec->inner[i]);
+    }
 }
 

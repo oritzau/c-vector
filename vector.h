@@ -17,4 +17,6 @@ void vec_debug(Vector* vec);
 
 void vec_sort(Vector* vec);
 
+void vec_map(Vector * vec, T func(T));
+
 #endif
