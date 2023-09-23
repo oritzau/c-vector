@@ -14,3 +14,7 @@ void vec_free(Vector* vec);
 void vec_push(Vector* vec, T value);
 
 void vec_pretty_print(Vector* vec);
+
+void vec_sort(Vector* vec);
+
+void insert_key(Vector * vec, unsigned value_index, int value);

@@ -44,18 +44,27 @@ void vec_push(Vector * vec, T value) {
     vec->len++;
 }
 
+
 void vec_sort(Vector * vec) {
-    // todo: merge sort?
-    unsigned start = 0;
-    unsigned end = vec->len;
-    unsigned mid = (unsigned) start / end;
+    // todo: insertion sort?
+    for (unsigned i = 0; i < vec->len - 1; i++) {
+        T curr = vec->inner[i + 1];
+        unsigned compare_index = i;
+        while (compare_index >= 0 && curr > vec->inner[compare_index]) {
+            // swapping curr and value at compare_index
+            T tmp = vec->inner[compare_index];
+            vec->inner[compare_index] = curr;
+            vec->inner[compare_index + 1] = tmp;
+            compare_index--;
+        }
+    }
 }
 
 
 void vec_pretty_print(Vector * vec) {
     printf("[\n");
     for (unsigned i = 0; i < vec->len; i++) {
-        printf("\t%f\n", vec->inner[i]);
+        printf("\t%d\n", vec->inner[i]);
     }
     printf("]\n");
 }
