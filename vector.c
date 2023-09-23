@@ -46,6 +46,7 @@ void vec_push(Vector * vec, T value) {
 
 
 void vec_sort(Vector * vec) {
+    if (vec->len == 0) return;
     // todo: insertion sort?
     for (unsigned i = 0; i < vec->len - 1; i++) {
         T curr = vec->inner[i + 1];
@@ -55,7 +56,7 @@ void vec_sort(Vector * vec) {
             T tmp = vec->inner[compare_index];
             vec->inner[compare_index] = curr;
             vec->inner[compare_index + 1] = tmp;
-            compare_index--;
+            compare_index -= 1;
         }
     }
 }
