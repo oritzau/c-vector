@@ -48,16 +48,21 @@ void vec_push(Vector * vec, T value) {
 void vec_sort(Vector * vec) {
     if (vec->len == 0) return;
     // todo: insertion sort?
-    for (unsigned i = 0; i < vec->len - 1; i++) {
-        T curr = vec->inner[i + 1];
-        unsigned compare_index = i;
-        while (compare_index >= 0 && curr > vec->inner[compare_index]) {
+    for (unsigned i = 1; i < vec->len; i++) {
+        T curr = vec->inner[i];
+        unsigned compare_index = i - 1;
+        printf("curr: %d compare_index: %u\n", curr, compare_index);
+        while ((compare_index >= 0) && (curr > vec->inner[compare_index])) {
+            printf("checkpoint 1\n");
             // swapping curr and value at compare_index
-            T tmp = vec->inner[compare_index];
-            vec->inner[compare_index] = curr;
-            vec->inner[compare_index + 1] = tmp;
-            compare_index -= 1;
+            vec->inner[compare_index + 1] = vec->inner[compare_index];
+            printf("checkpoint 2\n");
+            compare_index--;
+            printf("checkpoint 3, compare index: %d\n", compare_index);
         }
+        printf("Checkpoint 4\n");
+        vec->inner[compare_index + 1] = curr;
+        printf("Checkpoint 5\n");
     }
 }
 

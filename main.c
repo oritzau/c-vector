@@ -9,7 +9,7 @@ int main(void) {
     vec_push(vec, 9);
     vec_push(vec, 500);
     vec_push(vec, -20);
-    vec_pretty_print(vec);
+    vec_debug(vec);
     vec_sort(vec);
     vec_pretty_print(vec);
     vec_free(vec);

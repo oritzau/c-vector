@@ -1,9 +1,7 @@
-#ifdef T
-#undef T
-#endif
-#define T int
+#ifndef VECTOR_H
+#define VECTOR_H
 
-typedef struct {} Vector;
+#include "vector.c"
 
 Vector * vec_new();
 
@@ -15,6 +13,8 @@ void vec_push(Vector* vec, T value);
 
 void vec_pretty_print(Vector* vec);
 
+void vec_debug(Vector* vec);
+
 void vec_sort(Vector* vec);
 
-void insert_key(Vector * vec, unsigned value_index, int value);
+#endif
