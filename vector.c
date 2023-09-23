@@ -52,7 +52,7 @@ void vec_sort(Vector * vec) {
         T curr = vec->inner[i];
         unsigned compare_index = i - 1;
         printf("curr: %d compare_index: %u\n", curr, compare_index);
-        while ((compare_index >= 0) && (curr > vec->inner[compare_index])) {
+        while (compare_index >= 0 && curr > vec->inner[compare_index]) {
             printf("checkpoint 1\n");
             // swapping curr and value at compare_index
             vec->inner[compare_index + 1] = vec->inner[compare_index];
