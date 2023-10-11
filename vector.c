@@ -1,15 +1,7 @@
 #include <stdio.h>
 #include <memory.h>
 #include <stdlib.h>
-
-#define T int
-#define DEFAULT_CAPACITY 4
-
-typedef struct {
-    T * inner;
-    unsigned len;
-    unsigned capacity;
-} Vector;
+#include "vector.h"
 
 Vector* vec_new() {
     Vector* vec = (Vector *)malloc(sizeof(Vector));
@@ -44,8 +36,6 @@ void vec_push(Vector * vec, T value) {
     vec->len++;
 }
 
-// [5, 7, -3, 9, 500, -20]
-
 void vec_sort(Vector * vec) {
     if (vec->len == 0) return;
     // todo: insertion sort?
@@ -59,6 +49,10 @@ void vec_sort(Vector * vec) {
         }
         vec->inner[compare_index + 1] = curr;
     }
+}
+
+void vec_merge_sort(Vector * vec) {
+    
 }
 
 

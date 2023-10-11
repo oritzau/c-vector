@@ -1,7 +1,15 @@
 #ifndef VECTOR_H
 #define VECTOR_H
 
-#include "vector.c"
+#define T char
+
+typedef struct {
+    T * inner;
+    unsigned len;
+    unsigned capacity;
+} Vector;
+
+#define DEFAULT_CAPACITY 4
 
 Vector * vec_new();
 
@@ -17,6 +25,6 @@ void vec_debug(Vector* vec);
 
 void vec_sort(Vector* vec);
 
-void vec_map(Vector * vec, T func(T));
+void vec_map(Vector* vec, T func(T));
 
 #endif
